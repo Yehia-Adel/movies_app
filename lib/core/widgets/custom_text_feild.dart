@@ -95,11 +95,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
       enabled: widget.enabled,
       style: widget.textStyle ??
           theme.textTheme.bodyMedium?.copyWith(
-              color: const Color(0xFF222222), fontWeight: FontWeight.w500),
+              color: ColorPalette.white, fontWeight: FontWeight.w500),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       textInputAction: widget.action ?? TextInputAction.done,
       focusNode: widget.focusNode,
-      cursorColor: theme.primaryColor,
+      cursorColor: ColorPalette.primaryColor,
       decoration: InputDecoration(
         labelText: widget.label,
         labelStyle: theme.textTheme.bodyMedium?.copyWith(

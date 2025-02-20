@@ -19,7 +19,7 @@ class AvatarCardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
+    return ClipRRect(
       child: Image(image: AssetImage(charactersList[index])),
     );
   }
