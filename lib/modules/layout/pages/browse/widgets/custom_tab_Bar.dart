@@ -4,16 +4,23 @@ import 'package:movies_app/core/theme/color_palette.dart';
 class CustomTabBar extends StatelessWidget {
   final String tabTitle;
   final bool isSelected;
+  final Function() ontap;
 
-  const CustomTabBar(
-      {super.key, required this.tabTitle, this.isSelected = false});
+  const CustomTabBar({super.key,
+    required this.tabTitle,
+    required this.isSelected,
+    required this.ontap});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-            side: BorderSide(color: ColorPalette.primaryColor),
+            // padding: EdgeInsets.symmetric(vertical: 5),
+            backgroundColor: isSelected
+                ? ColorPalette.primaryColor
+                : ColorPalette.scaffoldBackground,
+            side: BorderSide(color: ColorPalette.primaryColor, width: 2),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16))),
         child: Text(

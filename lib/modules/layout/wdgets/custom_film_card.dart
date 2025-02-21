@@ -18,7 +18,7 @@ class CustomFilmCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
-      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      margin: EdgeInsets.symmetric(horizontal: 3, vertical: 5),
       width: imageWidth,
       height: imageHeight,
       decoration: BoxDecoration(
@@ -28,7 +28,7 @@ class CustomFilmCard extends StatelessWidget {
       child: Align(
         alignment: Alignment.topLeft,
         child: Container(
-          padding: EdgeInsets.all(3),
+          padding: EdgeInsets.symmetric(horizontal: 7, vertical: 3),
           decoration: BoxDecoration(
             color: ColorPalette.generalGreyColor.withValues(alpha: 0.8),
             borderRadius: BorderRadius.circular(16),
@@ -38,12 +38,12 @@ class CustomFilmCard extends StatelessWidget {
             children: [
               Text(
                 filmRate,
-                style: TextStyle(color: ColorPalette.white, fontSize: 10),
+                style: TextStyle(color: ColorPalette.white, fontSize: 16),
               ),
               Icon(
                 Icons.star,
                 color: ColorPalette.primaryColor,
-                size: 14,
+                size: 20,
               )
             ],
           ),

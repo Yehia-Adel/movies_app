@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
           LocalStorageService.getBool(LocalStorageKey.isFirstRun) ?? true;
 
       navigatorKey.currentState!.pushNamedAndRemoveUntil(
-          isFirstTime ? PagesRouteName.onboardingScreen : PagesRouteName.signIn,
+          isFirstTime ? PagesRouteName.onboardingScreen : PagesRouteName.layout,
           (route) => false);
     });
     super.initState();
