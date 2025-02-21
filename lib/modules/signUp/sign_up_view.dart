@@ -131,6 +131,7 @@ class _SignUpViewState extends State<SignUpView> {
                 }
                 return null;
               },
+              controller: _passwordController,
               isPassword: true,
               maxLines: 1,
               hint: "Password",

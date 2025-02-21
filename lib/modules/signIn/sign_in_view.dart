@@ -6,6 +6,7 @@ import 'package:movies_app/core/extensions/padding.dart';
 import 'package:movies_app/core/extensions/size.dart';
 import 'package:movies_app/core/extensions/validations.dart';
 import 'package:movies_app/core/routes/pages_route_name.dart';
+import 'package:movies_app/core/services/snack_bar_services.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
 import 'package:movies_app/core/utils/firebase_services.dart';
 import 'package:movies_app/core/widgets/custom_elevated_button.dart';
@@ -107,6 +108,9 @@ class _SignInViewState extends State<SignInView> {
                     if (value) {
                       navigatorKey.currentState!.pushNamedAndRemoveUntil(
                           PagesRouteName.layout, (route) => false);
+                    } else {
+                      SnackBarService.showErrorMessage(
+                          " Your password is incorrect or this account doesn’t exist");
                     }
                   });
                 }
