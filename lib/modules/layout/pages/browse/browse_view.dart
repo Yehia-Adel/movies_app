@@ -2,16 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/extensions/center.dart';
 import 'package:movies_app/core/extensions/size.dart';
 import 'package:movies_app/modules/layout/pages/browse/widgets/custom_tab_Bar.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/constants/app_assets.dart';
+import '../../../../core/services/movie_provider.dart';
 import '../../wdgets/custom_film_card.dart';
 
 class BrowseView extends StatelessWidget {
-  const BrowseView({super.key});
+  final List<String> genres = [
+    'Action',
+    'Adventure',
+    'Animation',
+    'Comedy',
+    'Drama',
+    'Horror',
+    'Sci-Fi'
+  ];
+
+  // const BrowseView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<MovieProvider>(context);
     var theme = Theme.of(context);
+
     return DefaultTabController(
       length: 4,
       child: Scaffold(

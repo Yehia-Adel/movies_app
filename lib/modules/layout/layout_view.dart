@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movies_app/core/theme/color_palette.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:movies_app/modules/layout/pages/account/profile_view.dart';
-import 'package:movies_app/modules/layout/pages/browse/browse_view.dart';
+import 'package:movies_app/modules/layout/pages/browse/browse_screen.dart';
 import 'package:movies_app/modules/layout/pages/home/home_view.dart';
-import 'package:movies_app/modules/layout/pages/search/search_view.dart';
+import 'package:movies_app/modules/layout/pages/search/search_screen.dart';
+
+import '../../core/theme/color_palette.dart';
 
 class LayoutView extends StatefulWidget {
   LayoutView({super.key});
@@ -14,7 +15,12 @@ class LayoutView extends StatefulWidget {
 }
 
 class _LayoutViewState extends State<LayoutView> {
-  List<Widget> pages = [HomeView(), SearchView(), BrowseView(), ProfileView()];
+  List<Widget> pages = [
+    HomeView(),
+    SearchScreen(),
+    BrowseScreen(),
+    ProfileView()
+  ];
 
   int _selectedIndex = 0;
 

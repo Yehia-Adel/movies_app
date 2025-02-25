@@ -22,7 +22,8 @@ class CustomFilmCard extends StatelessWidget {
       width: imageWidth,
       height: imageHeight,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(filmImage), fit: BoxFit.cover),
+        image:
+            DecorationImage(image: NetworkImage(filmImage), fit: BoxFit.cover),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Align(

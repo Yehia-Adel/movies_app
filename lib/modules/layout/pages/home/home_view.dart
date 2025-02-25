@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/extensions/size.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
 import 'package:movies_app/modules/layout/wdgets/custom_film_card.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../core/services/movie_provider.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({super.key});
@@ -26,6 +29,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    final provider = Provider.of<MovieProvider>(context);
 
     return Scaffold(
       body: Column(

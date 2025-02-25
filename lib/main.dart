@@ -6,7 +6,9 @@ import 'package:movies_app/core/routes/app_routes.dart';
 import 'package:movies_app/core/services/loading_service.dart';
 import 'package:movies_app/core/services/local_storage_service.dart';
 import 'package:movies_app/core/theme/app_theme_manager.dart';
+import 'package:provider/provider.dart';
 
+import 'core/services/movie_provider.dart';
 import 'firebase_options.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -17,7 +19,12 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => MovieProvider()),
+    ],
+    child: MyApp(),
+  ));
   configLoading();
 }
 
