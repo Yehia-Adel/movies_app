@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/extensions/padding.dart';
+import 'package:movies_app/core/routes/pages_route_name.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
+import 'package:movies_app/main.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -83,20 +85,23 @@ class ProfileView extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: ColorPalette.red,
+                            backgroundColor: ColorPalette.primaryColor,
                             shape:
                             RoundedRectangleBorder(borderRadius: BorderRadius
                                 .circular(15)),
                             side: BorderSide(
                               color: ColorPalette.primaryColor,
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          navigatorKey.currentState!
+                              .pushNamed(PagesRouteName.editProfile);
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text("    Edit Profile    ",
                               style: TextStyle(
-                                  color: ColorPalette.red,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20),
                             ).setVerticalPadding(context, 0.015),
@@ -109,7 +114,7 @@ class ProfileView extends StatelessWidget {
                             RoundedRectangleBorder(borderRadius: BorderRadius
                                 .circular(15)),
                             side: BorderSide(
-                              color: ColorPalette.primaryColor,
+                              color: ColorPalette.red,
                             )),
                         onPressed: () {},
                         child: Row(
@@ -117,7 +122,7 @@ class ProfileView extends StatelessWidget {
                           children: [
                             Text("Exit",
                               style: TextStyle(
-                                  color: ColorPalette.red,
+                                  color: ColorPalette.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20),
                             ).setVerticalPadding(context, 0.015),

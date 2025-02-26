@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
 
+import '../../../main.dart';
+import '../../movie_details/movie_details.dart';
+
 class CustomFilmCard extends StatelessWidget {
   final String filmImage;
   final String filmRate;
@@ -16,37 +19,43 @@ class CustomFilmCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(5),
-      margin: EdgeInsets.symmetric(horizontal: 3, vertical: 5),
-      width: imageWidth,
-      height: imageHeight,
-      decoration: BoxDecoration(
-        image:
-            DecorationImage(image: NetworkImage(filmImage), fit: BoxFit.cover),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-          decoration: BoxDecoration(
-            color: ColorPalette.generalGreyColor.withValues(alpha: 0.8),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                filmRate,
-                style: TextStyle(color: ColorPalette.white, fontSize: 16),
-              ),
-              Icon(
-                Icons.star,
-                color: ColorPalette.primaryColor,
-                size: 20,
-              )
-            ],
+    return GestureDetector(
+      onTap: () {
+        navigatorKey.currentState!
+            .push(MaterialPageRoute(builder: (context) => MovieDetails()));
+      },
+      child: Container(
+        padding: EdgeInsets.all(5),
+        margin: EdgeInsets.symmetric(horizontal: 3, vertical: 5),
+        width: imageWidth,
+        height: imageHeight,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: NetworkImage(filmImage), fit: BoxFit.cover),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Align(
+          alignment: Alignment.topLeft,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+            decoration: BoxDecoration(
+              color: ColorPalette.generalGreyColor.withValues(alpha: 0.8),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  filmRate,
+                  style: TextStyle(color: ColorPalette.white, fontSize: 16),
+                ),
+                Icon(
+                  Icons.star,
+                  color: ColorPalette.primaryColor,
+                  size: 20,
+                )
+              ],
+            ),
           ),
         ),
       ),

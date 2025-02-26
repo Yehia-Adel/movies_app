@@ -5,6 +5,8 @@ import 'package:movies_app/core/widgets/custom_text_feild.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/services/movie_provider.dart';
+import '../../../../main.dart';
+import '../../../movie_details/movie_details.dart';
 import '../../wdgets/custom_film_card.dart';
 
 
@@ -43,12 +45,18 @@ class SearchScreen extends StatelessWidget {
               itemCount: provider.movies.length,
               itemBuilder: (context, index) {
                 final movie = provider.movies[index];
-                return CustomFilmCard(
-                    filmImage: movie.imageUrl,
-                    filmRate: "${movie.rating}",
-                    imageWidth: 0.45.width,
-                    imageHeight: 0.35.height);
-              },
+                      return GestureDetector(
+                        onTap: () {
+                          navigatorKey.currentState!.push(MaterialPageRoute(
+                              builder: (context) => MovieDetails()));
+                        },
+                        child: CustomFilmCard(
+                            filmImage: movie.imageUrl,
+                            filmRate: "${movie.rating}",
+                            imageWidth: 0.45.width,
+                            imageHeight: 0.35.height),
+                      );
+                    },
             ),
           ),
         ],

@@ -11,4 +11,5 @@ class PagesRouteName {
   static const String layout = "/layout_view";
   static const String profileView = "/profile_view";
   static const String editProfile = "/edit_profile_view";
+// static const String movieDetails = "/movie_details_view";
 }

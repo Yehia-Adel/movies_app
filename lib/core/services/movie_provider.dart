@@ -9,14 +9,25 @@ class MovieProvider with ChangeNotifier {
   bool _isLoading = false;
 
   List<Movie> get movies => _movies;
-
   bool get isLoading => _isLoading;
 
   Future<void> loadMovies({String genre = '', String query = ''}) async {
-    _isLoading = true;
-    notifyListeners();
-    _movies = await _apiService.fetchMovies(genre: genre, query: query);
-    _isLoading = false;
-    notifyListeners();
+    try {
+      _isLoading = true;
+      notifyListeners();
+
+      _movies = await _apiService.fetchMovies(genre: genre, query: query);
+
+      print("Movies Loaded: ${_movies.length} movies");
+    } catch (e) {
+      print("Error fetching movies: $e");
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  MovieProvider() {
+    loadMovies();
   }
 }
